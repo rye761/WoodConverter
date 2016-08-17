@@ -1,0 +1,11 @@
+name: WoodConverter
+main: com.ryebread761.woodconverter.Main
+version: 1.0
+author: ryebread761
+commands:
+    woodconverter:
+        description: Convert wood.
+        usage: /woodconverter
+        permission: woodconverter.woodconverter
+        permisison-message: You don't have permission to do that!
+        aliases: [wc]
