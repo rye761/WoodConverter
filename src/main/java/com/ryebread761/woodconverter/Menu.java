@@ -86,9 +86,25 @@ public class Menu implements Listener {
             return;
         }
         
+        this.close();
+        if (!chargeForConversion(target.getAmount())) {
+            player.sendMessage(ChatColor.RED +
+                    "You don't have enough money for that!");
+            return;
+        }
         target.setDurability(toType);
         target.setType(toMat);
-        this.close();
+    }
+    
+    private boolean chargeForConversion(int logs) {
+        if (Main.economy == null) {
+            return true; // Economy support isn't enabled, so do nothing
+        }
+        if (!Main.economy.has(player, (logs * Main.costPerLog))) {
+            return false;
+        }
+        Main.economy.withdrawPlayer(player, (logs * Main.costPerLog));
+        return true;      
     }
     
     @EventHandler

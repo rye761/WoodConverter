@@ -2,6 +2,7 @@ name: WoodConverter
 main: com.ryebread761.woodconverter.Main
 version: 1.1
 author: ryebread761
+softdepend: [Vault]
 commands:
     woodconverter:
         description: Convert wood.
