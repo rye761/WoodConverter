@@ -20,7 +20,11 @@ public class Menu implements Listener {
     
     public Menu(Player p) {
         player = p;
-        inv = Bukkit.createInventory(player, 9, "Wood Converter");
+        final String title = Main.costPerLog > 0 ?
+                "Wood Converter - " + ChatColor.DARK_RED +
+                (Main.costPerLog * player.getInventory().getItemInHand().getAmount()) :
+                "Wood Converter";
+        inv = Bukkit.createInventory(player, 9, title);
         isOpen = false;
         
         // Create inventory items (buttons)

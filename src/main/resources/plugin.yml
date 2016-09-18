@@ -1,6 +1,6 @@
 name: WoodConverter
 main: com.ryebread761.woodconverter.Main
-version: 1.1
+version: 1.3
 author: ryebread761
 softdepend: [Vault]
 commands:

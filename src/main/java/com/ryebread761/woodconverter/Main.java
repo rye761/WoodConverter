@@ -1,10 +1,12 @@
 package com.ryebread761.woodconverter;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.mcstats.Metrics;
 
 public class Main extends JavaPlugin {
     public static Economy economy = null;
@@ -19,6 +21,13 @@ public class Main extends JavaPlugin {
                     "Economy support not enabled. Is Vault installed?");
         }
         this.getCommand("woodconverter").setExecutor(new WoodConverterCommand());
+        
+        try {
+            Metrics metrics = new Metrics(this);
+            metrics.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
     private boolean setupEcon() {
